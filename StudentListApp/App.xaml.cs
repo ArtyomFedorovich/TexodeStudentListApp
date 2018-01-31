@@ -14,6 +14,7 @@ namespace StudentListApp
   public partial class App : Application
   {
     public static List<Student> LoadedStudentsData { get; private set; }
+    public static WindowService WindowService { get; private set; }
 
     /// <summary>
     /// Constructor.
@@ -23,6 +24,7 @@ namespace StudentListApp
       try
       {
         LoadedStudentsData = new XMLParser().LoadStudentsDataFromXML("Students.xml");
+        WindowService = new WindowService();
       }
       catch (Exception ex)
       {

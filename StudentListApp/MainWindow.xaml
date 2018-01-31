@@ -17,7 +17,11 @@
     </Grid.RowDefinitions>
 
     <!--  ListView with students.  -->
-    <ListView Name="StudentsListView" Grid.Row="0">
+    <ListView
+      Name="StudentsListView"
+      Grid.Row="0"
+      ItemsSource="{Binding StudentsData}">
+
 
       <ListView.ItemTemplate>
         <DataTemplate>
@@ -59,7 +63,9 @@
 
       </Grid.ColumnDefinitions>
 
-      <Button Margin="20">Add Student</Button>
+      <Button Margin="20" Command="{Binding OpenAddStudentWindowCommand}">
+        Add Student
+      </Button>
       <Button Grid.Column="1" Margin="20">Remove Students</Button>
 
     </Grid>
