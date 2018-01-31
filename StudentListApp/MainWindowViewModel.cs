@@ -15,7 +15,7 @@ namespace StudentListApp
 
     private void OpenAddStudentWindow()
     {
-      App.WindowService.OpenAddStudentWindow(new AddStudentWindowViewModel());
+      App.WindowService.OpenAddStudentWindow();
     }
 
     public MainWindowViewModel()

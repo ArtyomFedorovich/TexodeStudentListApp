@@ -8,10 +8,12 @@ namespace StudentListApp
 {
   public class WindowService
   {
-    public void OpenAddStudentWindow(AddStudentWindowViewModel addWindowViewModel)
+    public MainWindowViewModel MainWindowViewModel { get; private set; }
+    public void OpenAddStudentWindow(MainWindowViewModel mainViewModel)
     {
+      MainWindowViewModel = mainViewModel;
       var window = new AddStudentWindow();
-      window.Content = addWindowViewModel;
+      //window.Content = addWindowViewModel;
       window.Show();
     }
   }
