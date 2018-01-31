@@ -20,7 +20,14 @@ namespace StudentListApp
     /// </summary>
     private App()
     {
-      LoadedStudentsData = new XMLParser().LoadStudentsDataFromXML("Students.xml");
+      try
+      {
+        LoadedStudentsData = new XMLParser().LoadStudentsDataFromXML("Students.xml");
+      }
+      catch (Exception ex)
+      {
+        // Logging.        
+      }
     }
   }
 }
