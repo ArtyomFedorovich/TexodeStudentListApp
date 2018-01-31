@@ -13,7 +13,7 @@ namespace StudentListApp
   /// </summary>
   public partial class App : Application
   {
-    public List<Student> LoadedStudentsData { get; private set; }
+    public static List<Student> LoadedStudentsData { get; private set; }
 
     /// <summary>
     /// Constructor.

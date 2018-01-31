@@ -23,6 +23,7 @@ namespace StudentListApp
     public MainWindow()
     {
       InitializeComponent();
+      StudentsListView.ItemsSource = App.LoadedStudentsData;
     }
   }
 }
