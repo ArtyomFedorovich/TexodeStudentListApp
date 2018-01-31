@@ -9,9 +9,18 @@ using System.Windows;
 namespace StudentListApp
 {
   /// <summary>
-  /// Логика взаимодействия для App.xaml
+  /// Interaction logic for App.xaml
   /// </summary>
   public partial class App : Application
   {
+    public List<Student> LoadedStudentsData { get; private set; }
+
+    /// <summary>
+    /// Constructor.
+    /// </summary>
+    private App()
+    {
+      LoadedStudentsData = new XMLParser().LoadStudentsDataFromXML("Students.xml");
+    }
   }
 }
