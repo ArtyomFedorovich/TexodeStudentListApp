@@ -11,7 +11,13 @@
   mc:Ignorable="d">
   <Grid>
 
-    <ListView Name="StudentsListView">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="*" />
+      <RowDefinition Height="75" />
+    </Grid.RowDefinitions>
+
+    <!--  ListView with students.  -->
+    <ListView Name="StudentsListView" Grid.Row="0">
 
       <ListView.ItemTemplate>
         <DataTemplate>
@@ -42,6 +48,21 @@
       </ListView.ItemTemplate>
 
     </ListView>
+
+    <!--  Buttons for changing students list.  -->
+    <Grid Grid.Row="1">
+      <Grid.ColumnDefinitions>
+
+        <ColumnDefinition Width="1*" />
+        <ColumnDefinition Width="1*" />
+        <ColumnDefinition Width="1*" />
+
+      </Grid.ColumnDefinitions>
+
+      <Button Margin="20">Add Student</Button>
+      <Button Grid.Column="1" Margin="20">Remove Students</Button>
+
+    </Grid>
 
   </Grid>
 </Window>
