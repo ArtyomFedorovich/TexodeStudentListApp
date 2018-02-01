@@ -4,6 +4,7 @@
 *.ide
 *.suo
 
+*.vs
 /.vs/
 /StudentListApp/.vs/StudentListApp/v15/.suo
 /StudentListApp/.vs/StudentListApp/v15/sqlite3/storage.ide
