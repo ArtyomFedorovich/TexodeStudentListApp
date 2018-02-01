@@ -17,12 +17,23 @@ namespace StudentListApp
   /// <summary>
   /// Логика взаимодействия для AddStudentWindow.xaml
   /// </summary>
-  public partial class AddStudentWindow : Window
+  public partial class StudentInfoWindow : Window
   {
-    public AddStudentWindow()
+    public StudentInfoWindow()
     {
       InitializeComponent();
       DataContext = new StudentInfoWindowViewModel();
+    }
+    public StudentInfoWindow(StudentInfoWindowRole role)
+    {
+      InitializeComponent();
+      DataContext = new StudentInfoWindowViewModel(role);
+    }
+    public StudentInfoWindow(StudentInfoWindowRole role, Student studentInfo)
+    {
+      InitializeComponent();
+      DataContext = new StudentInfoWindowViewModel(role, studentInfo);
+
     }
   }
 }

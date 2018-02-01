@@ -45,6 +45,28 @@
             DisplayMemberBinding="{Binding Gender}"
             Header="Gender" />
 
+          <GridViewColumn Width="auto" Header="Edit">
+            <GridViewColumn.CellTemplate>
+              <DataTemplate>
+                <Button
+                  Command="{Binding Path=DataContext.OpenChangeStudentWindowCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ItemsControl}}}"
+                  CommandParameter="{Binding}"
+                  Content="Edit" />
+              </DataTemplate>
+            </GridViewColumn.CellTemplate>
+          </GridViewColumn>
+
+          <GridViewColumn Width="auto" Header="Remove">
+            <GridViewColumn.CellTemplate>
+              <DataTemplate>
+                <Button
+                  Command="{Binding Path=DataContext.RemoveStudentNoteCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ItemsControl}}}"
+                  CommandParameter="{Binding}"
+                  Content="Remove" />
+              </DataTemplate>
+            </GridViewColumn.CellTemplate>
+          </GridViewColumn>
+
         </GridView>
       </ListView.View>
 

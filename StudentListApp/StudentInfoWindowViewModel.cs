@@ -7,6 +7,11 @@ using System.Windows;
 
 namespace StudentListApp
 {
+  public enum StudentInfoWindowRole
+  {
+    Add,
+    Edit
+  }
   public class StudentInfoWindowViewModel : BaseViewModel
   {
     private int inputId;
@@ -15,7 +20,9 @@ namespace StudentListApp
     private int inputAge;
     private Gender inputGender;
 
-    public RelayCommand AddStudentCommand { get; private set; }
+    public StudentInfoWindowRole WindowRole { get; private set; } = StudentInfoWindowRole.Add;
+
+    public RelayCommand ConfirmStudentInfoCommand { get; private set; }
 
     public int InputId
     {
@@ -116,10 +123,49 @@ namespace StudentListApp
         }
       }
     }
+    private void EditStudent()
+    {
+      var validator = new StudentNoteValidator();
+
+      if (!validator.CheckFirstName(InputFirstName))
+      {
+        MessageBox.Show(AssemblyInfo.ADD_STUDENT_DENIED + AssemblyInfo.ADD_DENIED_INCORRECT_FIRSTNAME);
+      }
+      else if (!validator.CheckLastName(InputLastName))
+      {
+        MessageBox.Show(AssemblyInfo.ADD_STUDENT_DENIED + AssemblyInfo.ADD_DENIED_INCORRECT_LASTNAME);
+      }
+      else if (!validator.CheckAge(InputAge))
+      {
+        MessageBox.Show(AssemblyInfo.ADD_STUDENT_DENIED + AssemblyInfo.ADD_DENIED_INCORRECT_AGE);
+      }
+
+      else
+      {
+        App.WindowService.MainWindowViewModel.StudentsData[InputId] = new Student(InputId, InputFirstName,
+          InputLastName, InputAge, InputGender);
+        MessageBox.Show(AssemblyInfo.EDIT_STUDENT_SUCCESS);
+      }
+    }
 
     public StudentInfoWindowViewModel()
     {
-      AddStudentCommand = new RelayCommand(AddStudent);
+      ConfirmStudentInfoCommand = new RelayCommand(AddStudent);
+    }
+    public StudentInfoWindowViewModel(StudentInfoWindowRole role)
+    {
+      ConfirmStudentInfoCommand = role == StudentInfoWindowRole.Add ? new RelayCommand(AddStudent)
+                                                                    : new RelayCommand(EditStudent);
+    }
+    public StudentInfoWindowViewModel(StudentInfoWindowRole role, Student studentInfo)
+    {
+      ConfirmStudentInfoCommand = role == StudentInfoWindowRole.Add ? new RelayCommand(AddStudent)
+                                                                    : new RelayCommand(EditStudent);
+      InputId = studentInfo.Id;
+      InputFirstName = studentInfo.FirstName;
+      InputLastName = studentInfo.LastName;
+      InputAge = studentInfo.Age;
+      InputGender = studentInfo.Gender;
     }
   }
 }

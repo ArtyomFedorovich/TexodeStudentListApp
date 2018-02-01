@@ -14,7 +14,7 @@ namespace StudentListApp
     /// The action to run
     /// </summary>
     private Action action;
-
+    private Action<object> actionWithParam;
     #endregion
 
     #region Public Events
@@ -34,6 +34,10 @@ namespace StudentListApp
     public RelayCommand(Action action)
     {
       this.action = action;
+    }
+    public RelayCommand(Action<object> actionWithParam)
+    {
+      this.actionWithParam = actionWithParam;
     }
 
     #endregion
@@ -55,6 +59,17 @@ namespace StudentListApp
     /// </summary>
     /// <param name="parameter"></param>
     public void Execute(object parameter)
+    {
+      if (parameter != null)
+      {
+        actionWithParam(parameter);
+      }
+      else
+      {
+        action();
+      }
+    }
+    public void Execute()
     {
       action();
     }

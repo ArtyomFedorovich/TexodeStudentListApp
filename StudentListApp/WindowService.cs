@@ -12,8 +12,18 @@ namespace StudentListApp
     public void OpenAddStudentWindow(MainWindowViewModel mainViewModel)
     {
       MainWindowViewModel = mainViewModel;
-      var window = new AddStudentWindow();
+      var window = new StudentInfoWindow();
       //window.Content = addWindowViewModel;
+      window.Show();
+    }
+    public void OpenChangeStudentWindow(MainWindowViewModel mainViewModel, Student studentData)
+    {
+      MainWindowViewModel = mainViewModel;
+      var window = new StudentInfoWindow(StudentInfoWindowRole.Edit, studentData);
+      //window.FirstNameBox.Text = studentData.FirstName;
+      //window.LastNameBox.Text = studentData.LastName;
+      //window.AgeBox.Text = studentData.Age.ToString();
+      //window.GenderBox.SelectedItem = studentData.Gender.ToString();
       window.Show();
     }
   }
