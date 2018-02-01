@@ -53,3 +53,12 @@ using System.Windows;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+public class AssemblyInfo
+{
+  public const string ADD_STUDENT_SUCCESS = "New student's note has been added to the list! ";
+  public const string ADD_STUDENT_DENIED = "Can't add new student's note to the list! ";
+  public const string ADD_DENIED_INCORRECT_FIRSTNAME = "Empty or incorrect first name.";
+  public const string ADD_DENIED_INCORRECT_LASTNAME = "Empty or incorrect last name.";
+  public const string ADD_DENIED_INCORRECT_AGE = "Empty or incorrect age.";
+  public const string ADD_DENIED_NOTE_EXIST = "Current student's note already exists.";
+}

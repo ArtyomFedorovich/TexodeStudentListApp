@@ -22,7 +22,7 @@ namespace StudentListApp
     public AddStudentWindow()
     {
       InitializeComponent();
-      DataContext = new AddStudentWindowViewModel();
+      DataContext = new StudentInfoWindowViewModel();
     }
   }
 }

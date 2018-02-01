@@ -16,17 +16,25 @@ namespace StudentListApp
   {
     public int Id { get; private set; }
     public string FirstName { get; private set; }
-    public string Last { get; private set; }
+    public string LastName { get; private set; }
     public int Age { get; private set; }
     public Gender Gender { get; private set; }
 
-    public Student(int id, string firstName, string last, int age, Gender gender)
+    public Student(int id, string firstName, string lastName, int age, Gender gender)
     {
       Id = id;
       FirstName = firstName;
-      Last = last;
+      LastName = lastName;
       Age = age;
       Gender = gender;
+    }
+
+    public bool AreEqual(Student comparedStudent)
+    {
+      return FirstName == comparedStudent.FirstName &&
+             LastName == comparedStudent.LastName &&
+             Age == comparedStudent.Age &&
+             Gender == comparedStudent.Gender;
     }
   }
 }

@@ -10,17 +10,17 @@ namespace StudentListApp
   {
     public bool CheckFirstName(string firstName)
     {
-      return firstName != string.Empty;
+      return (firstName != string.Empty) && (firstName != null);
     }
-    public bool CheckLastName()
+    public bool CheckLastName(string lastName)
     {
-      return true;
+      return (lastName != string.Empty) && (lastName != null);
     }
-    public bool CheckAge()
+    public bool CheckAge(int age)
     {
-      return true;
+      return (age >= 16) && (age <= 100);
     }
-    public bool CheckGender()
+    public bool CheckGender(Gender gender)
     {
       return true;
     }

@@ -20,36 +20,33 @@
     <ListView
       Name="StudentsListView"
       Grid.Row="0"
-      ItemsSource="{Binding StudentsData}">
+      ItemsSource="{Binding Path=StudentsData}">
 
+      <ListView.View>
+        <GridView>
+          <GridViewColumn
+            Width="Auto"
+            DisplayMemberBinding="{Binding Id}"
+            Header="Id" />
+          <GridViewColumn
+            Width="Auto"
+            DisplayMemberBinding="{Binding FirstName}"
+            Header="FirstName" />
+          <GridViewColumn
+            Width="Auto"
+            DisplayMemberBinding="{Binding LastName}"
+            Header="LastName" />
+          <GridViewColumn
+            Width="Auto"
+            DisplayMemberBinding="{Binding Age}"
+            Header="Age" />
+          <GridViewColumn
+            Width="Auto"
+            DisplayMemberBinding="{Binding Gender}"
+            Header="Gender" />
 
-      <ListView.ItemTemplate>
-        <DataTemplate>
-          <StackPanel Orientation="Horizontal">
-
-            <TextBlock Text="Id: " />
-            <TextBlock FontWeight="Bold" Text="{Binding Id}" />
-            <TextBlock Text=", " />
-
-            <TextBlock Text="FirstName: " />
-            <TextBlock FontWeight="Bold" Text="{Binding FirstName}" />
-            <TextBlock Text=", " />
-
-            <TextBlock Text="Last: " />
-            <TextBlock FontWeight="Bold" Text="{Binding Last}" />
-            <TextBlock Text=", " />
-
-            <TextBlock Text="Age: " />
-            <TextBlock FontWeight="Bold" Text="{Binding Age}" />
-            <TextBlock Text=", " />
-
-            <TextBlock Text="Gender: " />
-            <TextBlock FontWeight="Bold" Text="{Binding Gender}" />
-            <TextBlock Text="; " />
-
-          </StackPanel>
-        </DataTemplate>
-      </ListView.ItemTemplate>
+        </GridView>
+      </ListView.View>
 
     </ListView>
 

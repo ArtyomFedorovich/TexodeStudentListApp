@@ -5,10 +5,25 @@
   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
   xmlns:local="clr-namespace:StudentListApp"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-  Title="AddStudentWindow"
+  xmlns:sys="clr-namespace:System;assembly=mscorlib"
+  Title="Student Info"
   Width="500"
   Height="250"
   mc:Ignorable="d">
+
+  <Window.Resources>
+    <ObjectDataProvider
+      x:Key="DataFromGenderEnum"
+      MethodName="GetValues"
+      ObjectType="{x:Type sys:Enum}">
+
+      <ObjectDataProvider.MethodParameters>
+        <x:Type TypeName="local:Gender" />
+      </ObjectDataProvider.MethodParameters>
+
+    </ObjectDataProvider>
+  </Window.Resources>
+
   <Grid>
     <Grid.RowDefinitions>
       <RowDefinition Height="1*" />
@@ -22,7 +37,7 @@
 
     <StackPanel Margin="10" Orientation="Vertical">
       <TextBlock Text="First Name* : " />
-      <TextBox Margin="0,7,0,0" Text="{Binding InputFirstName, Mode=OneWay}" />
+      <TextBox Margin="0,7,0,0" Text="{Binding InputFirstName}" />
     </StackPanel>
 
     <StackPanel
@@ -30,7 +45,7 @@
       Margin="10"
       Orientation="Vertical">
       <TextBlock Text="Last Name* : " />
-      <TextBox Margin="0,7,0,0" />
+      <TextBox Margin="0,7,0,0" Text="{Binding InputLastName}" />
     </StackPanel>
 
     <StackPanel
@@ -38,7 +53,7 @@
       Margin="10"
       Orientation="Vertical">
       <TextBlock Text="Age (16-100) : " />
-      <TextBox Margin="0,7,0,0" />
+      <TextBox Margin="0,7,0,0" Text="{Binding InputAge}" />
     </StackPanel>
 
     <StackPanel
@@ -47,7 +62,10 @@
       Margin="10"
       Orientation="Vertical">
       <TextBlock Text="Gender* : " />
-      <ListBox Margin="0,7,0,0" />
+      <ComboBox
+        Margin="0,7,0,0"
+        ItemsSource="{Binding Source={StaticResource DataFromGenderEnum}}"
+        SelectedItem="{Binding Path=InputGender}" />
     </StackPanel>
 
     <Button
