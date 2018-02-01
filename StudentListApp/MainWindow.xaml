@@ -20,6 +20,8 @@
     <ListView
       Name="StudentsListView"
       Grid.Row="0"
+      AlternationCount="2"
+      ItemContainerStyle="{StaticResource NoteColorStyle}"
       ItemsSource="{Binding Path=StudentsData}">
 
       <ListView.View>
