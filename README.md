@@ -1,2 +1,0 @@
-# TexodeStudentListApp
-Students List App

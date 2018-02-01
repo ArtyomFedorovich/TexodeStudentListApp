@@ -22,7 +22,7 @@
 
     <StackPanel Margin="10" Orientation="Vertical">
       <TextBlock Text="First Name* : " />
-      <TextBox Margin="0,7,0,0" Text="{Binding InputFirstName}" />
+      <TextBox Margin="0,7,0,0" Text="{Binding InputFirstName, Mode=OneWay}" />
     </StackPanel>
 
     <StackPanel
@@ -53,6 +53,7 @@
     <Button
       Grid.Row="2"
       Margin="50,10,50,10"
+      Command="{Binding AddStudentCommand}"
       Content="Confirm" />
   </Grid>
 </Window>

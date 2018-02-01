@@ -13,7 +13,11 @@ namespace StudentListApp
 
     private void AddStudent()
     {
-      
+      var validator = new StudentNoteValidator();
+      if (validator.CheckFirstName(InputFirstName))
+      {
+
+      }
     }
 
     public AddStudentWindowViewModel()
