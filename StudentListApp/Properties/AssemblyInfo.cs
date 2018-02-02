@@ -55,6 +55,9 @@ using System.Windows;
 [assembly: AssemblyFileVersion("1.0.0.0")]
 public class AssemblyInfo
 {
+  public const int STUDENT_MIN_AGE = 16;
+  public const int STUDENT_MAX_AGE = 100;
+
   public const string ADD_STUDENT_SUCCESS = "New student's note has been added to the list! ";
   public const string ADD_STUDENT_DENIED = "Can't add new student's note to the list! ";
   public const string ADD_DENIED_INCORRECT_FIRSTNAME = "Empty or incorrect first name.";

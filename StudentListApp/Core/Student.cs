@@ -1,17 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 
 namespace StudentListApp
 {
+  /// <summary>
+  /// Student's gender.
+  /// </summary>
   public enum Gender
   {
     Male,
     Female
   }
 
+  /// <summary>
+  /// Represents information about student.
+  /// </summary>
   public class Student
   {
     public int Id { get; private set; }
@@ -21,6 +23,14 @@ namespace StudentListApp
     public int Age { get; private set; }
     public Gender Gender { get; private set; }
 
+    /// <summary>
+    /// Constructor.
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="firstName"></param>
+    /// <param name="lastName"></param>
+    /// <param name="age"></param>
+    /// <param name="gender"></param>
     public Student(int id, string firstName, string lastName, int age, Gender gender)
     {
       Id = id;
@@ -31,6 +41,11 @@ namespace StudentListApp
       Gender = gender;
     }
 
+    /// <summary>
+    /// Check if all properties of compared students are equal.
+    /// </summary>
+    /// <param name="comparedStudent"></param>
+    /// <returns></returns>
     public bool AreEqual(Student comparedStudent)
     {
       return FirstName == comparedStudent.FirstName &&

@@ -61,35 +61,35 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="RelayCommand.cs" />
-    <Compile Include="Student.cs" />
-    <Compile Include="StudentNoteValidator.cs" />
-    <Compile Include="WindowService.cs" />
-    <Compile Include="XMLParser.cs" />
-    <Page Include="StudentInfoWindow.xaml">
+    <Compile Include="Core\RelayCommand.cs" />
+    <Compile Include="Core\Student.cs" />
+    <Compile Include="Core\StudentNoteValidator.cs" />
+    <Compile Include="Core\WindowService.cs" />
+    <Compile Include="Core\XMLParser.cs" />
+    <Page Include="Views\StudentInfoWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="StudentInfoWindow.xaml.cs">
+    <Compile Include="Views\StudentInfoWindow.xaml.cs">
       <DependentUpon>StudentInfoWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StudentInfoWindowViewModel.cs" />
+    <Compile Include="ViewModels\StudentInfoWindowViewModel.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseViewModel.cs" />
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
