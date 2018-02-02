@@ -62,4 +62,6 @@ public class AssemblyInfo
   public const string ADD_DENIED_INCORRECT_AGE = "Empty or incorrect age.";
   public const string ADD_DENIED_NOTE_EXIST = "Current student's note already exists.";
   public const string EDIT_STUDENT_SUCCESS = "Student's note has been successfully changed!";
+  public const string QUESTION_REMOVE_STUDENT = "Do you want to remove this student's note?";
+  public const string QUESTION_REMOVE_STUDENT_HEADER = "Confirmation";
 }

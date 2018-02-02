@@ -17,6 +17,7 @@ namespace StudentListApp
     public int Id { get; private set; }
     public string FirstName { get; private set; }
     public string LastName { get; private set; }
+    public string FullName { get; private set; }
     public int Age { get; private set; }
     public Gender Gender { get; private set; }
 
@@ -25,6 +26,7 @@ namespace StudentListApp
       Id = id;
       FirstName = firstName;
       LastName = lastName;
+      FullName = new StringBuilder(firstName).Append(" ").Append(lastName).ToString();
       Age = age;
       Gender = gender;
     }

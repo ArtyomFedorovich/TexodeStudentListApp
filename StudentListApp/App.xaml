@@ -16,6 +16,9 @@
         </Trigger>
       </Style.Triggers>
     </Style>
+    <Style x:Key="ListViewStyle" TargetType="{x:Type ListView}">
+      <Style.Triggers />
+    </Style>
 
   </Application.Resources>
 </Application>

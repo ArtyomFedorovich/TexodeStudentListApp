@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace StudentListApp
 {
@@ -25,7 +26,12 @@ namespace StudentListApp
     }
     private void RemoveStudentNote(object commandParameter)
     {
-      StudentsData.Remove(commandParameter as Student);
+      var result = MessageBox.Show(AssemblyInfo.QUESTION_REMOVE_STUDENT, AssemblyInfo.QUESTION_REMOVE_STUDENT_HEADER,
+        MessageBoxButton.YesNo);
+      if (result == MessageBoxResult.Yes)
+      {
+        StudentsData.Remove(commandParameter as Student);
+      }
     }
 
     public MainWindowViewModel()
