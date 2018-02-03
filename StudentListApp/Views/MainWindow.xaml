@@ -23,10 +23,20 @@
       AlternationCount="2"
       Background="LightBlue"
       ItemContainerStyle="{StaticResource NoteColorStyle}"
-      ItemsSource="{Binding Path=StudentsData}">
+      ItemsSource="{Binding Path=StudentsData}"
+      SelectionMode="Multiple">
 
       <ListView.View>
         <GridView>
+
+          <GridViewColumn Width="Auto">
+            <GridViewColumn.CellTemplate>
+              <DataTemplate>
+                <CheckBox IsChecked="{Binding Path=IsSelected, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListViewItem}}}" />
+              </DataTemplate>
+            </GridViewColumn.CellTemplate>
+          </GridViewColumn>
+
           <GridViewColumn
             Width="Auto"
             DisplayMemberBinding="{Binding Id}"
