@@ -114,7 +114,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Students.xml" />
+    <EmbeddedResource Include="Resources\Students.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

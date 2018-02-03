@@ -23,7 +23,7 @@ namespace StudentListApp
     {
       try
       {
-        LoadedStudentsData = new XMLParser().LoadStudentsDataFromXML("Students.xml");
+        LoadedStudentsData = new XMLParser().LoadStudentsDataFromXML("Resources/Students.xml");
         WindowService = new WindowService();
       }
       catch (Exception ex)
