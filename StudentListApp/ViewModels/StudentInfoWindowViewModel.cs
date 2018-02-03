@@ -166,8 +166,10 @@ namespace StudentListApp
       // Input data is valid.
       else
       {
-        // Finding student's note by Id from parent window view model.
-        App.WindowService.MainWindowViewModel.StudentsData[InputId] = new Student(InputId, InputFirstName,
+        // Finding student's note in list by Id from parent window view model.
+        Student editStudent = App.WindowService.MainWindowViewModel.StudentsData.First(x => x.Id == InputId);
+        int editStudentId = App.WindowService.MainWindowViewModel.StudentsData.IndexOf(editStudent);
+        App.WindowService.MainWindowViewModel.StudentsData[editStudentId] = new Student(InputId, InputFirstName,
           InputLastName, InputAge, InputGender);
         MessageBox.Show(AssemblyInfo.EDIT_STUDENT_SUCCESS);
       }
