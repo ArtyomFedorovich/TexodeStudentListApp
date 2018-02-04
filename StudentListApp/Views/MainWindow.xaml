@@ -32,7 +32,7 @@
           <GridViewColumn Width="Auto">
             <GridViewColumn.CellTemplate>
               <DataTemplate>
-                <CheckBox IsChecked="{Binding Path=IsSelected, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListViewItem}}}" />
+                <CheckBox IsChecked="{Binding IsSelected}" />
               </DataTemplate>
             </GridViewColumn.CellTemplate>
           </GridViewColumn>
@@ -94,7 +94,12 @@
       <Button Margin="20" Command="{Binding OpenAddStudentWindowCommand}">
         Add Student
       </Button>
-      <Button Grid.Column="1" Margin="20">Remove Students</Button>
+      <Button
+        Grid.Column="1"
+        Margin="20"
+        Command="{Binding MultipleRemoveStudentNotesCommand}">
+        Remove Students
+      </Button>
 
     </Grid>
 

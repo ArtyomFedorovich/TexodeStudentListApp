@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 
 namespace StudentListApp
@@ -9,10 +10,26 @@ namespace StudentListApp
   public class MainWindowViewModel : BaseViewModel
   {
     /// <summary>
+    /// Private members.
+    /// </summary>
+    private ObservableCollection<Student> studentsData;
+
+    /// <summary>
     /// Properties.
     /// Observable collection for storing data about students that should be viewed in MainWindow.
     /// </summary>
-    public ObservableCollection<Student> StudentsData { get; set; }
+    public ObservableCollection<Student> StudentsData
+    {
+      get
+      {
+        return studentsData;
+      }
+      set
+      {
+        studentsData = value;
+        OnPropertyChanged(nameof(StudentsData));
+      }
+    }
 
     /// <summary>
     /// Commands properties for handling events from view.
@@ -20,6 +37,7 @@ namespace StudentListApp
     public RelayCommand OpenAddStudentWindowCommand { get; private set; }
     public RelayCommand OpenChangeStudentWindowCommand { get; private set; }
     public RelayCommand RemoveStudentNoteCommand { get; private set; }
+    public RelayCommand MultipleRemoveStudentNotesCommand { get; private set; }
 
     /// <summary>
     /// Method that opens new window for inputting info about new student.
@@ -49,6 +67,16 @@ namespace StudentListApp
         StudentsData.Remove(commandParameter as Student);
       }
     }
+    /// <summary>
+    /// Method that removes all selected students in list. 
+    /// </summary>
+    private void MultipleRemoveStudentNotes()
+    {
+      var newStudentsCollection = from student in StudentsData
+                                  where student.IsSelected == false
+                                  select student;
+      StudentsData = new ObservableCollection<Student>(newStudentsCollection);
+    }
 
     /// <summary>
     /// Constructor.
@@ -59,6 +87,7 @@ namespace StudentListApp
       OpenAddStudentWindowCommand = new RelayCommand(OpenAddStudentWindow);
       OpenChangeStudentWindowCommand = new RelayCommand(OpenChangeStudentWindow);
       RemoveStudentNoteCommand = new RelayCommand(RemoveStudentNote);
+      MultipleRemoveStudentNotesCommand = new RelayCommand(MultipleRemoveStudentNotes);
     }
 
   }

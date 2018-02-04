@@ -16,6 +16,9 @@ namespace StudentListApp
   /// </summary>
   public class Student
   {
+    /// <summary>
+    /// Properties.
+    /// </summary>
     public int Id { get; private set; }
     public string FirstName { get; private set; }
     public string LastName { get; private set; }
@@ -23,6 +26,8 @@ namespace StudentListApp
     public int Age { get; private set; }
     public Gender Gender { get; private set; }
 
+    public bool IsSelected { get; set; }
+    
     /// <summary>
     /// Constructor.
     /// </summary>
