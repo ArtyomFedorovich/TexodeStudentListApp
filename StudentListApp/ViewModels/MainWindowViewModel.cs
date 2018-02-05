@@ -38,6 +38,7 @@ namespace StudentListApp
     public RelayCommand OpenChangeStudentWindowCommand { get; private set; }
     public RelayCommand RemoveStudentNoteCommand { get; private set; }
     public RelayCommand MultipleRemoveStudentNotesCommand { get; private set; }
+    public RelayCommand CheckAllStudentNotesCommand { get; private set; }
 
     /// <summary>
     /// Method that opens new window for inputting info about new student.
@@ -79,6 +80,22 @@ namespace StudentListApp
     }
 
     /// <summary>
+    /// Method that makes all students checked or unchecked in ListView.
+    /// </summary>
+    /// <param name="commandParameter">IsChecked bool? value from sender control element.</param>
+    private void CheckAllStudentNotes(object commandParameter)
+    {
+      var isChecked = commandParameter as bool?;
+      if (commandParameter != null)
+      {
+        foreach (var student in StudentsData)
+        {
+          student.IsSelected = (bool)isChecked;
+        }
+      }    
+    }
+
+    /// <summary>
     /// Constructor.
     /// </summary>
     public MainWindowViewModel()
@@ -88,6 +105,7 @@ namespace StudentListApp
       OpenChangeStudentWindowCommand = new RelayCommand(OpenChangeStudentWindow);
       RemoveStudentNoteCommand = new RelayCommand(RemoveStudentNote);
       MultipleRemoveStudentNotesCommand = new RelayCommand(MultipleRemoveStudentNotes);
+      CheckAllStudentNotesCommand = new RelayCommand(CheckAllStudentNotes);
     }
 
   }

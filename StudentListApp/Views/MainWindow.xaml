@@ -58,6 +58,10 @@
         <GridView>
 
           <GridViewColumn Width="Auto">
+            <GridViewColumn.Header>
+              <CheckBox Command="{Binding CheckAllStudentNotesCommand}" CommandParameter="{Binding IsChecked, RelativeSource={RelativeSource Self}, Mode=OneWay}" />
+
+            </GridViewColumn.Header>
             <GridViewColumn.CellTemplate>
               <DataTemplate>
                 <CheckBox IsChecked="{Binding IsSelected}" />

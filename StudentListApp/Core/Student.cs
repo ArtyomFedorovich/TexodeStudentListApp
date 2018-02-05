@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.ComponentModel;
+using System.Text;
 
 namespace StudentListApp
 {
@@ -14,8 +15,13 @@ namespace StudentListApp
   /// <summary>
   /// Represents information about student.
   /// </summary>
-  public class Student
+  public class Student : INotifyPropertyChanged
   {
+    /// <summary>
+    /// Private fields.
+    /// </summary>
+    private bool isSelected;
+
     /// <summary>
     /// Properties.
     /// </summary>
@@ -26,7 +32,21 @@ namespace StudentListApp
     public int Age { get; private set; }
     public Gender Gender { get; private set; }
 
-    public bool IsSelected { get; set; }
+    /// <summary>
+    /// Indicates if this student item is selected in list.
+    /// </summary>
+    public bool IsSelected
+    {
+      get
+      {
+        return isSelected;
+      }
+      set
+      {
+        isSelected = value;
+        OnPropertyChanged(nameof(IsSelected));
+      }
+    }
     
     /// <summary>
     /// Constructor.
@@ -44,6 +64,15 @@ namespace StudentListApp
       FullName = new StringBuilder(firstName).Append(" ").Append(lastName).ToString();
       Age = age;
       Gender = gender;
+    }
+
+    /// <summary>
+    /// INotifyChanged property event and event call method.
+    /// </summary>
+    public event PropertyChangedEventHandler PropertyChanged;
+    public void OnPropertyChanged(string propertyName)
+    {
+      PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 
     /// <summary>
