@@ -20,5 +20,7 @@
       <Style.Triggers />
     </Style>
 
+    <local:ListVisibilityFromCountConverter x:Key="ListVisibilityConverter"/>
+
   </Application.Resources>
 </Application>

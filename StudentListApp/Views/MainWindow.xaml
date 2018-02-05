@@ -16,6 +16,25 @@
       <RowDefinition Height="75" />
     </Grid.RowDefinitions>
 
+    <!--  Empty list info control  -->
+    <TextBlock
+      Grid.Row="0"
+      HorizontalAlignment="Stretch"
+      VerticalAlignment="Stretch"
+      Background="LightBlue"
+      DataContext="{Binding}"
+      Text="The list is empty."
+      TextAlignment="Center">
+      <TextBlock.Visibility>
+        <MultiBinding Converter="{StaticResource ListVisibilityConverter}">
+          <MultiBinding.Bindings>
+            <Binding RelativeSource="{RelativeSource Self}" />
+            <Binding Path="StudentsData.Count" />
+          </MultiBinding.Bindings>
+        </MultiBinding>
+      </TextBlock.Visibility>
+    </TextBlock>
+
     <!--  ListView with students.  -->
     <ListView
       Name="StudentsListView"
@@ -25,6 +44,15 @@
       ItemContainerStyle="{StaticResource NoteColorStyle}"
       ItemsSource="{Binding Path=StudentsData}"
       SelectionMode="Multiple">
+
+      <ListView.Visibility>
+        <MultiBinding Converter="{StaticResource ListVisibilityConverter}">
+          <MultiBinding.Bindings>
+            <Binding RelativeSource="{RelativeSource Self}" />
+            <Binding Path="StudentsData.Count" />
+          </MultiBinding.Bindings>
+        </MultiBinding>
+      </ListView.Visibility>
 
       <ListView.View>
         <GridView>
